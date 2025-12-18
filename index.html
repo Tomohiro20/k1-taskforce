@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-1 TASKFORCE | 昆虫食×社会実装</title>
+    <style>
+        /* ここはCSS（デザイン）の記述です */
+        :root {
+            --main-color: #2c3e50; /* 知的なダークネイビー */
+            --accent-color: #e67e22; /* 活力のオレンジ（コオロギ色？） */
+            --bg-color: #f4f7f6;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--bg-color);
+        }
+        
+        /* ヘッダー（メインビジュアル） */
+        header {
+            background: linear-gradient(135deg, var(--main-color), #000);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 0.1em;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* コンテンツエリア */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        h2 {
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            color: var(--main-color);
+        }
+
+        /* プロフィール部分 */
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            background-color: #ddd; /* 写真が入る予定の場所 */
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        /* ボタン */
+        .btn {
+            display: inline-block;
+            background-color: var(--main-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 600px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>K-1 TASKFORCE</h1>
+        <p class="subtitle">内閣府ムーンショット事業 学生社会実装グループ</p>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Us</h2>
+            <p>
+                K-1タスクフォースは、内閣府ムーンショット型研究開発事業 目標5「地球規模の食料問題の解決と人類の宇宙進出に向けた昆虫が支える循環型食料生産システムの開発」プロジェクトに参画する学生団体です。
+            </p>
+            <p>
+                早稲田大学や東京農工大学の学生を中心に、昆虫食の社会実装を目指して活動中。科学教室やイベント出展などを通じて、持続可能な食の選択肢としての魅力を発信しています。
+            </p>
+        </section>
+
+        <section id="representative">
+            <h2>Representative</h2>
+            <div class="profile">
+                <img src="profile2.jpg" alt="藍原 朋弘" class="profile-img">
+                <div>
+                    <h3>藍原 朋弘</h3>
+                    <p style="font-size: 0.9rem; color: #666;">早稲田大学先進理工学研究科 一貫制博士課程 / K-1タスクフォース代表</p>
+                    <p>
+                        早稲田大学にて、深層学習を用いた動画解析（DeepLabCut等）によるコオロギの共食い行動の解明に取り組む研究者。
+                        研究で得られた知見を社会に還元すべく、学生チームを率いて社会実装活動を推進している。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="news">
+            <h2>Latest Activity</h2>
+            <p><strong>2025.11.28</strong><br>SHIBUYA QWSにて開催される「QWSアカデミア」に登壇・企画協力を行います。</p>
+            <p><a href="https://shibuya-qws.com/event/qws-academia1128" target="_blank" class="btn">イベント詳細を見る</a></p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>講演依頼、取材、プロジェクトへの参加希望はこちらからお問い合わせください。</p>
+            <a href="#" class="btn">お問い合わせフォームへ</a>
+        </section>
+    </div>
+
+    <footer style="text-align:center; padding:20px; font-size:0.8rem; color:#666;">
+        &copy; 2025 K-1 TASKFORCE. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

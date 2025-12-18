@@ -6,7 +6,7 @@
     <title>Contact | K-1 TASKFORCE</title>
     <style>
         :root { --primary-color: #2c3e50; --accent-color: #27ae60; --bg-color: #f9f9f9; --text-color: #333; }
-        body { font-family: "Helvetica Neue", Arial, sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); margin: 0; }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); margin: 0; }
         header { background: white; border-bottom: 1px solid #eee; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
         nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary-color); text-decoration: none; }
@@ -18,8 +18,14 @@
         .section-title-en { display: block; font-size: 0.8rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; text-align: center; }
         
         .contact-card { background: white; padding: 4rem 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-top: 2rem; }
-        .btn-email { display: inline-block; padding: 1.2rem 3rem; background: var(--primary-color); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; transition: transform 0.2s, background 0.3s; }
-        .btn-email:hover { background: #34495e; transform: translateY(-2px); }
+        .sns-container { display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; flex-wrap: wrap; }
+        
+        .sns-button { display: flex; align-items: center; gap: 10px; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; transition: transform 0.2s, opacity 0.3s; color: white; min-width: 200px; justify-content: center; }
+        .sns-button:hover { transform: translateY(-3px); opacity: 0.9; }
+        
+        /* 各SNSのブランドカラー */
+        .btn-x { background-color: #000; }
+        .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         
         footer { text-align: center; padding: 3rem; font-size: 0.8rem; color: #999; margin-top: 5rem; }
     </style>
@@ -38,14 +44,22 @@
     </nav>
 </header>
 
-<div class="container" style="max-width: 700px;">
+<div class="container" style="max-width: 800px;">
     <span class="section-title-en">Contact</span>
     <h2 style="display: block; text-align: center; border: none;">お問い合わせ</h2>
     <div class="contact-card">
-        <p>K-1タスクフォースへの講演依頼、取材、プロジェクトへの参画希望などは、以下の事務局窓口よりメールにてお問い合わせください。</p>
-        <p style="color: #888; font-size: 0.9rem; margin-bottom: 2.5rem;">※内容を確認次第、担当者より折り返しご連絡いたします。</p>
+        <p>K-1タスクフォースへの講演依頼、取材、プロジェクトへの参画希望などは、以下の公式SNSの<strong>ダイレクトメッセージ（DM）</strong>よりお気軽にご連絡ください。</p>
+        <p style="color: #888; font-size: 0.9rem; margin-bottom: 2rem;">※各アカウントのDMにて、担当者が内容を確認次第折り返しご連絡いたします。</p>
         
-        <a href="mailto:your-email@example.com" class="btn-email">メールを送る</a>
+        <div class="sns-container">
+            <a href="https://x.com/moshi_mushi_IF3?s=20" target="_blank" class="sns-button btn-x">
+                X (Twitter) で連絡する
+            </a>
+            
+            <a href="https://www.instagram.com/moshi_mushi_if3/" target="_blank" class="sns-button btn-instagram">
+                Instagram で連絡する
+            </a>
+        </div>
     </div>
 </div>
 

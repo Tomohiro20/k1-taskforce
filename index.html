@@ -8,7 +8,7 @@
         :root { --primary-color: #2c3e50; --accent-color: #27ae60; --bg-color: #f9f9f9; --text-color: #333; }
         body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); margin: 0; }
         header { background: white; border-bottom: 1px solid #eee; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
-        nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary-color); text-decoration: none; }
         .nav-links { display: flex; gap: 1.5rem; }
         .nav-links a { text-decoration: none; color: #666; font-size: 0.85rem; text-align: center; transition: color 0.3s; }
@@ -22,7 +22,6 @@
     </style>
 </head>
 <body>
-
 <header>
     <nav>
         <a href="index.html" class="logo">K-1 TASKFORCE</a>
@@ -35,21 +34,16 @@
         </div>
     </nav>
 </header>
-
 <section class="hero">
     <h1>K-1 TASKFORCE</h1>
     <p>内閣府ムーンショット型研究開発事業 目標5 学生社会実装グループ</p>
 </section>
-
 <div class="container">
-    <section>
-        <span class="section-title-en">About Us</span>
-        <h2>私たちについて</h2>
-        <p>K-1タスクフォースは、内閣府ムーンショット型研究開発事業 目標5「地球規模の食料問題の解決と人類の宇宙進出に向けた昆虫が支える循環型食料生産システムの開発」プロジェクトに参画する学生団体です。</p>
-        <p>早稲田大学や東京農工大学の学生を中心に、昆虫食の社会実装を目指して活動しています。科学教室やイベント出展などを通じて、持続可能な食の選択肢としての昆虫の魅力を、科学的根拠に基づいて発信しています。</p>
-    </section>
+    <span class="section-title-en">About Us</span>
+    <h2>私たちについて</h2>
+    <p>K-1タスクフォースは、内閣府ムーンショット型研究開発事業 目標5「地球規模の食料問題の解決と人類の宇宙進出に向けた昆虫が支える循環型食料生産システムの開発」プロジェクトに参画する学生団体です。</p>
+    <p>早稲田大学や東京農工大学の学生を中心に、昆虫食の社会実装を目指して活動しています。科学教室やイベント出展などを通じて、持続可能な食の選択肢としての昆虫の魅力を、科学的根拠に基づいて発信しています。</p>
 </div>
-
 <footer>&copy; 2025 K-1 TASKFORCE.</footer>
 </body>
 </html>

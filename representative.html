@@ -5,73 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Representative | K-1 TASKFORCE</title>
     <style>
-        /* index.htmlと同じスタイル（共通デザイン） */
         :root { --primary-color: #2c3e50; --accent-color: #27ae60; --bg-color: #f9f9f9; --text-color: #333; }
         body { font-family: "Helvetica Neue", Arial, sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); margin: 0; }
         header { background: white; border-bottom: 1px solid #eee; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
-        nav { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary-color); text-decoration: none; }
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { text-decoration: none; color: #666; font-size: 0.9rem; }
-        .nav-links a span { display: block; font-size: 0.7rem; color: #999; margin-top: -4px; }
-        
-        .container { max-width: 800px; margin: 3rem auto; padding: 0 2rem; }
-        
-        /* 代表紹介用スタイル */
-        .profile-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-bottom: 1.5rem;
-        }
-        h2 { color: var(--primary-color); margin-bottom: 0.5rem; }
-        .title { color: #888; font-size: 0.9rem; margin-bottom: 2rem; }
-        .bio { text-align: left; max-width: 600px; margin: 0 auto; }
-        
-        .section-title-en { display: block; font-size: 0.8rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; text-align: center; }
-        footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: #999; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { text-decoration: none; color: #666; font-size: 0.85rem; text-align: center; }
+        .nav-links a span { display: block; font-size: 0.65rem; color: #999; margin-top: -2px; }
+        .container { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
+        .profile-card { background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+        .section-title-en { display: block; font-size: 0.8rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; text-align: center; margin-bottom: 1rem; }
+        footer { text-align: center; padding: 3rem; font-size: 0.8rem; color: #999; }
     </style>
 </head>
 <body>
-
 <header>
     <nav>
         <a href="index.html" class="logo">K-1 TASKFORCE</a>
         <div class="nav-links">
             <a href="index.html">ABOUT US<span>私たちについて</span></a>
             <a href="representative.html">REPRESENTATIVE<span>代表紹介</span></a>
-            <a href="https://shibuya-qws.com/event/qws-academia1128" target="_blank">EVENT<span>イベント情報</span></a>
+            <a href="members.html">MEMBERS<span>メンバー</span></a>
+            <a href="activity.html">ACTIVITY<span>活動実績</span></a>
+            <a href="contact.html">CONTACT<span>お問い合わせ</span></a>
         </div>
     </nav>
 </header>
-
 <div class="container">
     <span class="section-title-en">Representative</span>
     <div class="profile-card">
         <img src="profile2.jpg" alt="藍原 朋弘" class="profile-img">
-        <h2>藍原 朋弘 / Tomohiro Aihara</h2>
-        <div class="title">早稲田大学先進理工学研究科 一貫制博士課程 / K-1タスクフォース代表</div>
-        
-        <div class="bio">
+        <h2 style="margin-bottom:0;">藍原 朋弘 / Tomohiro Aihara</h2>
+        <p style="color:#888; margin-top:0.5rem;">早稲田大学 一貫制博士課程 / 代表</p>
+        <div style="text-align: left; max-width: 600px; margin: 2rem auto 0;">
             <p>早稲田大学にて、深層学習を用いた動画解析（DeepLabCut等）によるコオロギの共食い行動の解明に取り組む研究者。</p>
-            <p>内閣府ムーンショット目標5プロジェクトの知見を社会に還元すべく、学生チーム「K-1タスクフォース」を率いて社会実装活動を推進しています。</p>
+            <p>内閣府ムーンショット目標5プロジェクトの知見を社会に還元すべく、学生チームを率いて社会実装を推進しています。</p>
         </div>
     </div>
 </div>
-
-<footer>
-    &copy; 2025 K-1 TASKFORCE.
-</footer>
-
+<footer>&copy; 2025 K-1 TASKFORCE.</footer>
 </body>
 </html>

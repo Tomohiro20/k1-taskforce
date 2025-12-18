@@ -1,16 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members | K-1 TASKFORCE</title>
+    <style>
+        :root { --primary-color: #2c3e50; --accent-color: #27ae60; --bg-color: #f9f9f9; --text-color: #333; }
+        body { font-family: "Helvetica Neue", Arial, sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); margin: 0; }
+        header { background: white; border-bottom: 1px solid #eee; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary-color); text-decoration: none; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { text-decoration: none; color: #666; font-size: 0.85rem; text-align: center; }
+        .nav-links a span { display: block; font-size: 0.65rem; color: #999; margin-top: -2px; }
+        .container { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
+        h2 { border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem; margin-bottom: 2rem; }
+        .section-title-en { display: block; font-size: 0.8rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; }
+        .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .member-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        footer { text-align: center; padding: 3rem; font-size: 0.8rem; color: #999; }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index.html" class="logo">K-1 TASKFORCE</a>
+        <div class="nav-links">
+            <a href="index.html">ABOUT US<span>私たちについて</span></a>
+            <a href="representative.html">REPRESENTATIVE<span>代表紹介</span></a>
+            <a href="members.html">MEMBERS<span>メンバー</span></a>
+            <a href="activity.html">ACTIVITY<span>活動実績</span></a>
+            <a href="contact.html">CONTACT<span>お問い合わせ</span></a>
+        </div>
+    </nav>
+</header>
 <div class="container">
     <span class="section-title-en">Members</span>
     <h2>メンバー紹介</h2>
-    <p>K-1タスクフォースには、農学、工学、理学など多様なバックグラウンドを持つ学生が所属しています。</p>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-            <h3 style="margin: 0;">藍原 朋弘</h3>
-            <p style="color: #666; font-size: 0.8rem;">早稲田大学 一貫制博士課程</p>
-        </div>
-        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-            <h3 style="margin: 0;">メンバー名 A</h3>
-            <p style="color: #666; font-size: 0.8rem;">東京農工大学 大学院修士課程</p>
-        </div>
-        </div>
+    <div class="member-grid">
+        <div class="member-card"><h3>藍原 朋弘</h3><p>早稲田大学 博士課程</p></div>
+        <div class="member-card"><h3>（募集中）</h3><p>共同編集メンバー募集中</p></div>
+    </div>
 </div>
+<footer>&copy; 2025 K-1 TASKFORCE.</footer>
+</body>
+</html>

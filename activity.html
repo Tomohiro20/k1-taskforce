@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>活動実績 | K-1タスクフォース</title>
+    <meta name="description" content="K-1タスクフォースの活動実績、イベント登壇情報、メディア掲載情報をお知らせします。SHIBUYA QWS Academiaなどの登壇実績。">
     <meta property="og:title" content="活動実績 | K-1タスクフォース">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tomohiro20.github.io/k1-taskforce/activity.html">
+    <meta property="og:image" content="https://tomohiro20.github.io/k1-taskforce/profile2.jpg">
+    <meta property="og:site_name" content="K-1 TASKFORCE">
+    <meta property="og:description" content="昆虫食の未来を拓く学生研究チーム。活動実績やメンバー紹介はこちら。">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="google-site-verification" content="Trgu1eiCLAtIteQYHwvQUB7ynaxj96qaWu15byhWsTI" />
     <style>
         :root { --primary-color: #2c3e50; --accent-color: #27ae60; --bg-color: #f9f9f9; --text-color: #333; }
         body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); margin: 0; }
@@ -15,60 +24,30 @@
         .nav-links a { text-decoration: none; color: #666; font-size: 0.85rem; text-align: center; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent-color); }
         .nav-links a span { display: block; font-size: 0.65rem; color: #999; margin-top: -2px; }
+        
         .container { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
         h2 { border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem; margin-bottom: 2rem; }
         .section-title-en { display: block; font-size: 0.8rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; }
+
+        /* ニュース記事のスタイル */
+        .news-item { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem; display: flex; gap: 2rem; align-items: flex-start; }
+        .news-date { font-size: 0.85rem; color: #999; margin-bottom: 0.5rem; display: block; }
+        .news-content { flex: 1; }
+        .news-title { font-size: 1.4rem; font-weight: bold; margin-bottom: 1rem; color: var(--primary-color); line-height: 1.4; }
+        .news-tag { display: inline-block; background-color: var(--accent-color); color: white; padding: 0.2rem 0.8rem; border-radius: 4px; font-size: 0.7rem; margin-bottom: 0.5rem; }
         
-        /* タイムラインのデザイン */
-        .timeline { border-left: 2px solid #eee; padding-left: 2rem; margin-top: 3rem; }
-        .timeline-item { margin-bottom: 3rem; position: relative; }
-        .timeline-dot { width: 12px; height: 12px; background: var(--accent-color); border-radius: 50%; position: absolute; left: -2.45rem; top: 0.5rem; }
-        .timeline-date { color: var(--accent-color); font-weight: bold; font-size: 0.9rem; }
-        
+        /* 画像プレースホルダー */
+        .news-image { width: 150px; height: 150px; object-fit: cover; border-radius: 8px; background-color: #eee; flex-shrink: 0; }
+
         footer { text-align: center; padding: 3rem; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; margin-top: 5rem; }
-        /* --- スマホ・タブレット向けの調整 (レスポンシブ) --- */
+
+        /* スマホ対応 */
         @media (max-width: 768px) {
-            header {
-                padding: 1rem;
-            }
-
-            nav {
-                flex-direction: column; /* ロゴとメニューを縦に並べる */
-                gap: 1rem;
-            }
-
-            .nav-links {
-                gap: 0.8rem;
-                flex-wrap: wrap; /* メニューが入り切らない時に折り返す */
-                justify-content: center;
-            }
-
-            .nav-links a {
-                font-size: 0.75rem; /* 文字を少し小さく */
-            }
-
-            .hero h1 {
-                font-size: 1.8rem; /* タイトルをスマホサイズに */
-            }
-
-            .container {
-                padding: 0 1.5rem;
-                margin: 2rem auto;
-            }
-
-            h2 {
-                font-size: 1.4rem;
-            }
-
-            /* メンバー一覧を1列にする */
-            .member-grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* 代表紹介のカード内パディングを調整 */
-            .profile-card {
-                padding: 2rem 1rem;
-            }
+            header { padding: 1rem; }
+            nav { flexDirection: column; gap: 1rem; }
+            .nav-links { gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+            .news-item { flex-direction: column; }
+            .news-image { width: 100%; height: 200px; margin-bottom: 1rem; }
         }
     </style>
 </head>
@@ -87,24 +66,31 @@
 </header>
 
 <div class="container">
-    <span class="section-title-en">Latest Activity</span>
+    <span class="section-title-en">Activity</span>
     <h2>活動実績</h2>
-    
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2025.11.28</div>
-            <h3 style="margin-top: 0.5rem;">SHIBUYA QWS「QWSアカデミア」登壇</h3>
-            <p>内閣府ムーンショット事業の成果発表および、次世代の食文化を考えるワークショップを企画・実施しました。</p>
+
+    <article class="news-item">
+        <img src="profile2.jpg" alt="SHIBUYA QWSでの登壇" class="news-image">
+        <div class="news-content">
+            <span class="news-date">2024.11.28</span>
+            <span class="news-tag">EVENT</span>
+            <div class="news-title">「SHIBUYA QWS Academia」に代表・藍原が登壇決定</div>
+            <p>渋谷スクランブルスクエアで開催される「SHIBUYA QWS Academia」に、K-1タスクフォース代表の藍原朋弘が登壇します。</p>
+            <p>「未知の価値に、触れる」をテーマに、昆虫食が拓く未来の宇宙・地球の食糧システムについて、ムーンショット目標5の成果を交えたピッチを行います。</p>
+            <p><a href="https://shibuya-qws.com/" target="_blank" style="color: var(--accent-color);">SHIBUYA QWS公式サイトへ &rarr;</a></p>
         </div>
-        
-        <div class="timeline-item">
-            <div class="timeline-dot" style="background:#ccc;"></div>
-            <div class="timeline-date" style="color:#888;">2025.10.15</div>
-            <h3 style="margin-top: 0.5rem;">学生メンバー全体MTG</h3>
-            <p>今後の社会実装戦略と、Webサイトを通じた広報体制についての協議を行いました。</p>
+    </article>
+
+    <article class="news-item">
+        <div class="news-content">
+            <span class="news-date">2024.04.01</span>
+            <span class="news-tag">NEWS</span>
+            <div class="news-title">K-1タスクフォース プロジェクト本格始動</div>
+            <p>内閣府ムーンショット型研究開発事業 目標5「地球規模の食料問題の解決と人類の宇宙進出に向けた昆虫が支える循環型食料生産システムの開発」の社会実装を担う学生グループとして、K-1タスクフォースが結成されました。</p>
+            <p>早稲田大学、東京農工大学、お茶の水女子大学の学生が連携し、研究と社会をつなぐ活動を開始します。</p>
         </div>
-    </div>
+    </article>
+
 </div>
 
 <footer>&copy; 2025 K-1 TASKFORCE.</footer>

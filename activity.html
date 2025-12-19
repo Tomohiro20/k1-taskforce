@@ -25,6 +25,50 @@
         .timeline-date { color: var(--accent-color); font-weight: bold; font-size: 0.9rem; }
         
         footer { text-align: center; padding: 3rem; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; margin-top: 5rem; }
+        /* --- スマホ・タブレット向けの調整 (レスポンシブ) --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            nav {
+                flex-direction: column; /* ロゴとメニューを縦に並べる */
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 0.8rem;
+                flex-wrap: wrap; /* メニューが入り切らない時に折り返す */
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem; /* 文字を少し小さく */
+            }
+
+            .hero h1 {
+                font-size: 1.8rem; /* タイトルをスマホサイズに */
+            }
+
+            .container {
+                padding: 0 1.5rem;
+                margin: 2rem auto;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            /* メンバー一覧を1列にする */
+            .member-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* 代表紹介のカード内パディングを調整 */
+            .profile-card {
+                padding: 2rem 1rem;
+            }
+        }
     </style>
 </head>
 <body>

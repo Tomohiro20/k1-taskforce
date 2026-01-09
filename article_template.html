@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記事のタイトル | K-1タスクフォース</title>
+    <style>
+        :root { --primary-color: #2c3e50; --accent-color: #27ae60; --bg-color: #f9f9f9; --text-color: #333; }
+        body { font-family: "Helvetica Neue", Arial, sans-serif; line-height: 1.8; color: var(--text-color); background: var(--bg-color); margin: 0; }
+        header { background: white; border-bottom: 1px solid #eee; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary-color); text-decoration: none; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { text-decoration: none; color: #666; font-size: 0.85rem; }
+        
+        /* 記事詳細ページ用のスタイル */
+        .article-container { max-width: 800px; margin: 3rem auto; padding: 0 2rem; background: white; padding: 3rem; border-radius: 8px; }
+        .article-header { border-bottom: 1px solid #eee; padding-bottom: 1.5rem; margin-bottom: 2rem; }
+        .article-date { color: #999; font-size: 0.9rem; }
+        .article-title { font-size: 2rem; margin: 0.5rem 0; color: var(--primary-color); }
+        .article-body img { max-width: 100%; height: auto; border-radius: 8px; margin: 1rem 0; }
+        .back-link { display: inline-block; margin-top: 3rem; color: var(--accent-color); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .article-container { padding: 1.5rem; margin: 1rem; }
+            .article-title { font-size: 1.5rem; }
+            nav { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index.html" class="logo">K-1タスクフォース</a>
+        <div class="nav-links">
+            <a href="index.html">ABOUT US</a>
+            <a href="activity.html">ACTIVITY</a>
+        </div>
+    </nav>
+</header>
+
+<div class="article-container">
+    <div class="article-header">
+        <span class="article-date">2024.11.28</span>
+        <h1 class="article-title">ここに記事のタイトルが入ります</h1>
+        </div>
+
+    <div class="article-body">
+        <p>ここに本文が入ります。</p>
+        <img src="profile2.jpg" alt="記事の画像">
+        <p>文章を増やしたり、画像を貼ったりできます。</p>
+        </div>
+
+    <a href="activity.html" class="back-link">&larr; 活動一覧に戻る</a>
+</div>
+
+</body>
+</html>

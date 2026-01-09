@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お問い合わせ | K-1タスクフォース</title>
     <meta property="og:title" content="お問い合わせ | K-1タスクフォース">
+    <meta name="google-site-verification" content="Trgu1eiCLAtIteQYHwvQUB7ynaxj96qaWu15byhWsTI" />
     <style>
         :root { --primary-color: #2c3e50; --accent-color: #27ae60; --bg-color: #f9f9f9; --text-color: #333; }
         body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); margin: 0; }
@@ -12,66 +13,40 @@
         nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary-color); text-decoration: none; }
         .nav-links { display: flex; gap: 1.5rem; }
-        .nav-links a { text-decoration: none; color: #666; font-size: 0.85rem; text-align: center; }
+        .nav-links a { text-decoration: none; color: #666; font-size: 0.85rem; text-align: center; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent-color); }
         .nav-links a span { display: block; font-size: 0.65rem; color: #999; margin-top: -2px; }
+        
         .container { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
         h2 { border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem; margin-bottom: 2rem; }
         .section-title-en { display: block; font-size: 0.8rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; text-align: center; }
         
-        .contact-card { background: white; padding: 4rem 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-top: 2rem; }
-        .sns-container { display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; flex-wrap: wrap; }
+        .contact-card { background: white; padding: 3rem 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-top: 2rem; }
         
-        .sns-button { display: flex; align-items: center; gap: 10px; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; transition: transform 0.2s, opacity 0.3s; color: white; min-width: 200px; justify-content: center; }
+        /* メールセクション */
+        .email-section { margin: 2rem 0 3.5rem; }
+        .email-box { display: inline-block; background: #f0f4f8; padding: 1.5rem 2.5rem; border-radius: 8px; border: 2px dashed var(--accent-color); }
+        .email-address { display: block; font-size: 1.4rem; font-weight: bold; color: var(--primary-color); text-decoration: none; margin-bottom: 0.5rem; transition: color 0.3s; word-break: break-all; }
+        .email-address:hover { color: var(--accent-color); }
+        .email-label { font-size: 0.8rem; color: #666; }
+
+        /* SNSセクション */
+        .sns-section { border-top: 1px solid #eee; pt: 2.5rem; margin-top: 2rem; padding-top: 2rem; }
+        .sns-container { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .sns-button { display: flex; align-items: center; gap: 10px; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-size: 0.9rem; font-weight: bold; transition: transform 0.2s, opacity 0.3s; color: white; min-width: 180px; justify-content: center; }
         .sns-button:hover { transform: translateY(-3px); opacity: 0.9; }
         
-        /* 各SNSのブランドカラー */
         .btn-x { background-color: #000; }
         .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         
-        footer { text-align: center; padding: 3rem; font-size: 0.8rem; color: #999; margin-top: 5rem; }
-        /* --- スマホ・タブレット向けの調整 (レスポンシブ) --- */
+        footer { text-align: center; padding: 3rem; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; margin-top: 5rem; }
+
         @media (max-width: 768px) {
-            header {
-                padding: 1rem;
-            }
-
-            nav {
-                flex-direction: column; /* ロゴとメニューを縦に並べる */
-                gap: 1rem;
-            }
-
-            .nav-links {
-                gap: 0.8rem;
-                flex-wrap: wrap; /* メニューが入り切らない時に折り返す */
-                justify-content: center;
-            }
-
-            .nav-links a {
-                font-size: 0.75rem; /* 文字を少し小さく */
-            }
-
-            .hero h1 {
-                font-size: 1.8rem; /* タイトルをスマホサイズに */
-            }
-
-            .container {
-                padding: 0 1.5rem;
-                margin: 2rem auto;
-            }
-
-            h2 {
-                font-size: 1.4rem;
-            }
-
-            /* メンバー一覧を1列にする */
-            .member-grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* 代表紹介のカード内パディングを調整 */
-            .profile-card {
-                padding: 2rem 1rem;
-            }
+            header { padding: 1rem; }
+            nav { flex-direction: column; gap: 1rem; }
+            .nav-links { gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+            .email-address { font-size: 1.1rem; }
+            .email-box { padding: 1.2rem; }
         }
     </style>
 </head>
@@ -93,21 +68,26 @@
     <span class="section-title-en">Contact</span>
     <h2 style="display: block; text-align: center; border: none;">お問い合わせ</h2>
     <div class="contact-card">
-        <p>K-1タスクフォースへの講演依頼、取材、プロジェクトへの参画希望などは、以下の公式SNSの<strong>ダイレクトメッセージ（DM）</strong>よりお気軽にご連絡ください。</p>
-        <p style="color: #888; font-size: 0.9rem; margin-bottom: 2rem;">※各アカウントのDMにて、担当者が内容を確認次第折り返しご連絡いたします。</p>
+        <p>K-1タスクフォースへの講演依頼、取材、プロジェクトへの参画希望などは、以下のメールアドレスよりお気軽にご連絡ください。</p>
         
-        <div class="sns-container">
-            <a href="https://x.com/moshi_mushi_IF3?s=20" target="_blank" class="sns-button btn-x">
-                X (Twitter) で連絡する
-            </a>
-            
-            <a href="https://www.instagram.com/moshi_mushi_if3/" target="_blank" class="sns-button btn-instagram">
-                Instagram で連絡する
-            </a>
+        <div class="email-section">
+            <div class="email-box">
+                <span class="email-label">公式メールアドレス（こちらを推奨）</span>
+                <a href="mailto:moshi.mushi.if3@gmail.com" class="email-address">moshi.mushi.if3@gmail.com</a>
+                <span class="email-label">※タップするとメールソフトが起動します</span>
+            </div>
+        </div>
+
+        <div class="sns-section">
+            <p style="color: #333; font-weight: bold;">SNSはこちら（DMは届かない場合がございます。連絡はメールにてお願いいたします。）</p>
+            <div class="sns-container">
+                <a href="https://x.com/moshi_mushi_IF3?s=20" target="_blank" class="sns-button btn-x">X (Twitter)</a>
+                <a href="https://www.instagram.com/moshi_mushi_if3/" target="_blank" class="sns-button btn-instagram">Instagram</a>
+            </div>
         </div>
     </div>
 </div>
 
-<footer>&copy; 2025 K-1 TASKFORCE.</footer>
+<footer>&copy; 2026 K-1 TASKFORCE.</footer>
 </body>
 </html>

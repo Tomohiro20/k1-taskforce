@@ -11,76 +11,8 @@
     <meta property="og:site_name" content="K-1 TASKFORCE">
     <meta property="og:description" content="昆虫食の社会実装を目指す学生団体「K-1タスクフォース」の公式ページです。活動実績やイベント出展情報などを発信しています。">
     <meta name="twitter:card" content="summary_large_image">
-    <style>
-        :root { --primary-color: #2c3e50; --accent-color: #27ae60; --bg-color: #f9f9f9; --text-color: #333; }
-        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); margin: 0; }
-        header { background: white; border-bottom: 1px solid #eee; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
-        nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary-color); text-decoration: none; }
-        .nav-links { display: flex; gap: 1.5rem; }
-        .nav-links a { text-decoration: none; color: #666; font-size: 0.85rem; text-align: center; }
-        .nav-links a span { display: block; font-size: 0.65rem; color: #999; margin-top: -2px; }
-        .container { max-width: 1000px; margin: 3rem auto; padding: 0 2rem; }
-        
-        h2 { border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem; margin-bottom: 2rem; }
-        h3 { color: var(--primary-color); margin-top: 3rem; border-left: 4px solid var(--primary-color); padding-left: 1rem; font-size: 1.1rem; }
-        .section-title-en { display: block; font-size: 0.8rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; }
-        
-        /* メンバーカードのデザイン */
-        .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-        .member-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.2s; }
-        .member-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .member-name { font-size: 1.1rem; font-weight: bold; margin-bottom: 0.2rem; }
-        .member-kana { font-size: 0.7rem; color: #999; margin-bottom: 0.8rem; }
-        .member-info { font-size: 0.85rem; color: #555; line-height: 1.5; }
-        .lab-name { font-size: 0.8rem; color: var(--accent-color); margin-top: 0.5rem; font-weight: bold; }
-
-        footer { text-align: center; padding: 3rem; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; margin-top: 5rem; }
-        /* --- スマホ・タブレット向けの調整 (レスポンシブ) --- */
-        @media (max-width: 768px) {
-            header {
-                padding: 1rem;
-            }
-
-            nav {
-                flex-direction: column; /* ロゴとメニューを縦に並べる */
-                gap: 1rem;
-            }
-
-            .nav-links {
-                gap: 0.8rem;
-                flex-wrap: wrap; /* メニューが入り切らない時に折り返す */
-                justify-content: center;
-            }
-
-            .nav-links a {
-                font-size: 0.75rem; /* 文字を少し小さく */
-            }
-
-            .hero h1 {
-                font-size: 1.8rem; /* タイトルをスマホサイズに */
-            }
-
-            .container {
-                padding: 0 1.5rem;
-                margin: 2rem auto;
-            }
-
-            h2 {
-                font-size: 1.4rem;
-            }
-
-            /* メンバー一覧を1列にする */
-            .member-grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* 代表紹介のカード内パディングを調整 */
-            .profile-card {
-                padding: 2rem 1rem;
-            }
-        }
-    </style>
+    <link rel="icon" href="icon.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>

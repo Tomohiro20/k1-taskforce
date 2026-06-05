@@ -3,10 +3,10 @@
 body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif; line-height: 1.7; color: var(--text-color); background-color: var(--bg-color); margin: 0; }
 
 /* === Header & Nav === */
-header { background: white; border-bottom: 1px solid #eee; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+header { background: white; border-bottom: 1px solid #eee; padding: 0.75rem 2rem; position: sticky; top: 0; z-index: 100; }
 nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
 .logo { text-decoration: none; display: flex; align-items: center; flex-shrink: 0; }
-.logo img { height: 40px !important; width: auto !important; max-width: none !important; display: inline-block !important; vertical-align: middle; }
+.logo img { height: 80px !important; width: auto !important; max-width: none !important; display: inline-block !important; vertical-align: middle; }
 .nav-links { display: flex; gap: 1.5rem; }
 .nav-links a { text-decoration: none; color: #666; font-size: 0.85rem; text-align: center; transition: color 0.3s; }
 .nav-links a:hover { color: var(--accent-color); }
@@ -67,9 +67,9 @@ footer { text-align: center; padding: 3rem; font-size: 0.8rem; color: #999; bord
 
 /* === Responsive === */
 @media (max-width: 768px) {
-    header { padding: 0.8rem 1rem; }
-    nav { flex-direction: column; gap: 0.8rem; align-items: center; }
-    .logo img { height: 32px !important; }
+    header { padding: 0.75rem 1rem; }
+    nav { flex-direction: column; gap: 0.75rem; align-items: center; }
+    .logo img { height: 60px !important; }
     .nav-links { gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
     .nav-links a { font-size: 0.75rem; }
     .hero h1 { font-size: 1.8rem; }

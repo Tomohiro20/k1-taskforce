@@ -311,7 +311,7 @@ h1, h2, h3, p { margin: 0; }
 .news-list__title { font-size: 0.95rem; line-height: 1.7; }
 
 /* 活動実績 */
-.activity-list { border-bottom: 1px solid var(--line); }
+.activity-list { min-height: 60vh; border-bottom: 1px solid var(--line); }
 .activity-item {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -337,7 +337,7 @@ h1, h2, h3, p { margin: 0; }
     border-radius: 50% 50% 50% 0;
     transform: rotate(-45deg) translateY(-0.1em);
 }
-.activity-item__text { margin-top: 1rem; font-size: 0.92rem; color: #333835; }
+.activity-item__text { margin-top: 1rem; white-space: pre-line; font-size: 0.92rem; color: #333835; }
 .activity-item__links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 1.4rem; }
 .text-link {
     display: inline-flex;
@@ -361,7 +361,7 @@ h1, h2, h3, p { margin: 0; }
 .member-card { padding: 28px 0; border-bottom: 1px solid var(--line); }
 .member-card__name { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.08em; line-height: 1.5; }
 .member-card__kana { font-size: 0.7rem; letter-spacing: 0.14em; color: var(--muted); }
-.member-card__info { margin-top: 0.9rem; font-size: 0.84rem; line-height: 1.7; color: #333835; }
+.member-card__info { margin-top: 0.9rem; white-space: pre-line; font-size: 0.84rem; line-height: 1.7; color: #333835; }
 .member-card__lab { margin-top: 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; color: var(--accent); }
 
 /* 代表紹介 */

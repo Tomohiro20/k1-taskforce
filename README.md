@@ -18,39 +18,44 @@ assets/
   img/                ロゴ・ファビコン・代表写真など
   img/activity/       活動実績の写真（YYYYMMDD.jpg）
   img/hero/           トップのスライドショー写真（01〜04.jpg、横幅1920px）
+data/
+  activities.json     活動実績のデータ（管理画面から更新）
+  members.json        メンバーのデータ（管理画面から更新）
+.pages.yml            管理画面（Pages CMS）の設定
 sitemap.xml / robots.txt   検索エンジン向け
 ```
 
-## 活動実績を追加する
+## 更新のしかた（管理画面）
 
-1. 写真を `assets/img/activity/` に `開催日.jpg`（例: `20261101.jpg`）で保存する。横幅 1200px 程度に縮小しておく。
-2. `activity.html` の `<div class="activity-list">` のすぐ下（いちばん上）に次のブロックを貼り、中身を書き換える。
+活動実績とメンバーは、管理画面 **Pages CMS**（https://app.pagescms.org）から更新します。HTML を触る必要はありません。
 
-```html
-<article class="activity-item reveal" id="a20261101">
-    <div class="activity-item__thumb"><img src="assets/img/activity/20261101.jpg" alt="イベント名" loading="lazy"></div>
-    <div class="activity-item__body">
-        <div class="activity-item__meta">
-            <span class="date">2026.11.01</span>
-            <span class="tag">EVENT</span>
-        </div>
-        <h2 class="activity-item__title">タイトル</h2>
-        <p class="activity-item__place">開催場所</p>
-        <p class="activity-item__text">本文</p>
-        <div class="activity-item__links">
-            <a href="https://example.com/" target="_blank" rel="noopener" class="text-link">詳しく見る</a>
-        </div>
-    </div>
-</article>
+- **活動実績**：「活動実績」を開き、「追加」で1件増やして、タイトル・開催日・種別・場所・本文・写真・リンクを入力して保存する。
+  - 並び順は気にしなくてよい（サイトでは開催日の新しい順に自動で並ぶ）。
+  - トップページの「最新の活動」にも新しい4件が自動で出る。
+  - 写真はアップロード前に横幅 1600px 程度まで縮小する（スマホの写真そのままだとページが重くなる）。
+- **メンバー**：「メンバー」を開き、大学ごとのリストで追加・編集・削除して保存する。人数表示は自動。
+
+保存すると1〜2分でサイトに反映されます。
+
+### 管理者（藍原）の初回設定
+
+1. https://app.pagescms.org を開き、GitHub アカウントでサインインする。
+2. Pages CMS の GitHub App を、`Tomohiro20/k1-taskforce` リポジトリにインストールする（このリポジトリだけを選ぶ）。
+3. リポジトリを開くと、`.pages.yml` の設定どおりに「活動実績」「メンバー」「活動写真」が表示される。
+4. Collaborators（共同編集者）の画面で、メンバーのメールアドレスを入力して招待する。招待された人は GitHub アカウントなしで編集できる。
+
+### 手元のフォルダで編集するとき
+
+管理画面からの更新は GitHub 上に直接保存されます。手元で作業を始める前に、必ず最新版を取り込んでください。
+
+```bash
+git pull
 ```
 
-- `id` は `a` + 開催日（ページ内で重複させない）。
-- 受賞は `<span class="tag tag--award">AWARD</span>` にすると緑のタグになる。
-- トップページの「最新の活動」は `activity.html` の上から4件を自動表示するので、トップ側の編集は不要。
+## 仕組み
 
-## そのほかの更新
-
-- メンバー: `members.html` の `member-card` ブロックをコピーして編集（見出し横の人数表示も直す）。
+- `data/activities.json` と `data/members.json` が内容の本体。`assets/js/main.js` がこれを読み込んでページに表示する。
+- `.pages.yml` が管理画面の入力欄の定義。項目を増やしたいときはここと `main.js` を直す。
 - ヘッダー・フッター: 各ページに同じ内容が入っているので、変更時は5ページすべてを直す。
 - トップのスライドショー: `assets/img/hero/` の `01.jpg`〜`04.jpg` を同じ名前で差し替える。
 - 色やフォント: `assets/css/style.css` 冒頭の `:root` の変数を変える。
@@ -61,4 +66,4 @@ sitemap.xml / robots.txt   検索エンジン向け
 python3 -m http.server 8765
 ```
 
-を実行して http://localhost:8765 を開く（ファイルを直接ダブルクリックで開くと「最新の活動」だけ表示されません）。
+を実行して http://localhost:8765 を開く（ファイルを直接ダブルクリックで開くと、活動実績とメンバーが表示されません）。

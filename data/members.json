@@ -1,0 +1,96 @@
+{
+  "groups": [
+    {
+      "university": "早稲田大学",
+      "members": [
+        {
+          "name": "藍原 朋弘",
+          "kana": "あいはら ともひろ",
+          "affiliation": "先進理工学研究科 先進理工学専攻",
+          "grade": "一貫制博士課程2年",
+          "lab": "朝日研究室"
+        },
+        {
+          "name": "坂本 悠奈",
+          "kana": "さかもと ゆな",
+          "affiliation": "先進理工学部 生命医科学科",
+          "grade": "修士1年",
+          "lab": "朝日研究室"
+        }
+      ]
+    },
+    {
+      "university": "東京農工大学",
+      "members": [
+        {
+          "name": "村田 光陽",
+          "kana": "むらた こうよう",
+          "affiliation": "BASE",
+          "grade": "研究員",
+          "lab": "鈴木研究室"
+        },
+        {
+          "name": "粕田 大雅",
+          "kana": "かすた たいが",
+          "affiliation": "生物システム応用科学府",
+          "grade": "修士2年",
+          "lab": "鈴木研究室"
+        },
+        {
+          "name": "原田 彪吾",
+          "kana": "はらだ ひょうご",
+          "affiliation": "生物システム応用科学府",
+          "grade": "修士2年",
+          "lab": "鈴木研究室"
+        },
+        {
+          "name": "駒﨑 顕士",
+          "kana": "こまざき けんと",
+          "affiliation": "農学部",
+          "grade": "修士1年",
+          "lab": "鈴木研究室"
+        },
+        {
+          "name": "太田 菜緒",
+          "kana": "おおた なお",
+          "affiliation": "工学部",
+          "grade": "修士1年",
+          "lab": "片岡研究室"
+        },
+        {
+          "name": "長濵 良門",
+          "kana": "ながはま らもん",
+          "affiliation": "工学部",
+          "grade": "修士1年",
+          "lab": "片岡研究室"
+        },
+        {
+          "name": "木下 皓太",
+          "kana": "きのした こうた",
+          "affiliation": "工学部",
+          "grade": "修士1年",
+          "lab": "片岡研究室"
+        },
+        {
+          "name": "梅原 沙和香",
+          "kana": "うめはら さわか",
+          "affiliation": "工学部",
+          "grade": "修士1年",
+          "lab": "片岡研究室"
+        }
+      ]
+    },
+    {
+      "university": "お茶の水女子大学",
+      "members": [
+        {
+          "name": "熊澤 有紗",
+          "kana": "くまざわ ありさ",
+          "affiliation": "ライフサイエンス専攻 食品栄養科学コース",
+          "grade": "修士2年",
+          "lab": "栄養教育学研究室"
+        }
+      ]
+    }
+  ]
+}

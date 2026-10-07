@@ -1,0 +1,122 @@
+# Pages CMS（https://app.pagescms.org）の管理画面の設定
+# ここで「どのファイルを・どんな入力欄で」編集できるかを決めている
+
+media:
+  - name: activity
+    label: 活動写真
+    input: assets/img/activity
+    output: /assets/img/activity
+    rename: safe
+    extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: activities
+    label: 活動実績
+    type: file
+    path: data/activities.json
+    format: json
+    fields:
+      - name: items
+        label: 活動実績
+        description: 並び順は気にしなくて大丈夫です。サイトでは開催日の新しい順に自動で並びます。
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{date} {title}"
+        fields:
+          - name: title
+            label: タイトル
+            type: string
+            required: true
+          - name: date
+            label: 開催日（複数日の場合は初日）
+            type: date
+            required: true
+            options:
+              format: yyyy-MM-dd
+          - name: date_label
+            label: 日付の表示（複数日のときだけ）
+            description: "例: 2026.05.30・31 ／ 2025.11.14 ~ 11.16。1日だけなら空欄のままで大丈夫です。"
+            type: string
+          - name: tag
+            label: 種別
+            type: select
+            required: true
+            default: EVENT
+            options:
+              values:
+                - { name: EVENT, label: "EVENT（イベント・出展・講演）" }
+                - { name: AWARD, label: "AWARD（受賞）" }
+                - { name: NEWS, label: "NEWS（お知らせ）" }
+          - name: place
+            label: 開催場所
+            type: string
+          - name: text
+            label: 本文
+            type: text
+          - name: image
+            label: 写真（1枚・横長がおすすめ）
+            description: アップロード前に横幅1600px程度まで縮小してください（スマホの写真そのままだと重くなります）。
+            type: image
+            options:
+              media: activity
+          - name: links
+            label: リンクボタン
+            type: object
+            list:
+              collapsible:
+                summary: "{label}"
+            fields:
+              - name: label
+                label: ボタンの文字
+                type: string
+                default: 詳しく見る
+              - name: url
+                label: URL（https:// から）
+                type: string
+                pattern: "^https?://.+"
+
+  - name: members
+    label: メンバー
+    type: file
+    path: data/members.json
+    format: json
+    fields:
+      - name: groups
+        label: 大学ごとのメンバー
+        description: 上から順にサイトに表示されます。
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{university}"
+        fields:
+          - name: university
+            label: 大学名
+            type: string
+            required: true
+          - name: members
+            label: メンバー
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+            fields:
+              - name: name
+                label: 氏名
+                type: string
+                required: true
+              - name: kana
+                label: ふりがな
+                type: string
+              - name: affiliation
+                label: 学部・研究科・専攻
+                type: string
+              - name: grade
+                label: 学年・役職
+                type: string
+              - name: lab
+                label: 研究室
+                type: string

@@ -1,0 +1,26 @@
+# 本番（main）が更新されたら、下書き（draft ブランチ）にも同じ内容を取り込む。
+# 承認後や、管理者が直接サイトを直したあとに、下書きが古いままにならないようにする。
+name: 下書きを本番に合わせる
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: draft
+          fetch-depth: 0
+      - name: main の内容を draft に取り込む
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git merge --no-edit origin/main
+          git push origin draft

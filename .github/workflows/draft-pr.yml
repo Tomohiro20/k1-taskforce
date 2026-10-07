@@ -1,0 +1,41 @@
+# メンバーが管理画面（Pages CMS）で下書き（draft ブランチ）に保存したら、
+# 本番（main）への「承認依頼」（プルリクエスト）を自動で作る。
+# 管理者がそれを Merge すると、サイトに公開される。
+name: 承認依頼を作る
+
+on:
+  push:
+    branches: [draft]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  open-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 承認依頼がなければ作る
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ahead=$(gh api "repos/$GITHUB_REPOSITORY/compare/main...draft" -q .ahead_by)
+          if [ "$ahead" = "0" ]; then
+            echo "下書きと本番に差がないので何もしません"
+            exit 0
+          fi
+          open=$(gh pr list --repo "$GITHUB_REPOSITORY" --base main --head draft --state open --json number -q '.[0].number')
+          if [ -n "$open" ]; then
+            echo "承認依頼 #$open がすでにあります（新しい変更はそこに追加されます）"
+            exit 0
+          fi
+          gh pr create --repo "$GITHUB_REPOSITORY" --base main --head draft \
+            --title "サイト更新の承認依頼" \
+            --body "管理画面から、活動実績・メンバー・写真の更新がありました。
+
+          **確認のしかた**
+          1. 上の「Files changed」タブで、変更された内容を確認する（緑が追加、赤が削除）。
+          2. 問題なければ「Conversation」タブに戻り、**Merge pull request** → **Confirm merge** を押す。1〜2分でサイトに公開されます。
+
+          **公開したくない場合**
+          Merge を押さずにそのままにして、管理画面の下書きで内容を直してください（直した内容はこの承認依頼に自動で反映されます）。"

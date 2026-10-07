@@ -10,6 +10,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  issues: write
 
 jobs:
   open-pr:
@@ -18,6 +19,7 @@ jobs:
       - name: 承認依頼がなければ作る
         env:
           GH_TOKEN: ${{ github.token }}
+          OWNER: ${{ github.repository_owner }}
         run: |
           ahead=$(gh api "repos/$GITHUB_REPOSITORY/compare/main...draft" -q .ahead_by)
           if [ "$ahead" = "0" ]; then
@@ -26,12 +28,16 @@ jobs:
           fi
           open=$(gh pr list --repo "$GITHUB_REPOSITORY" --base main --head draft --state open --json number -q '.[0].number')
           if [ -n "$open" ]; then
-            echo "承認依頼 #$open がすでにあります（新しい変更はそこに追加されます）"
+            # すでに承認依頼がある場合は、コメントで管理者に知らせる
+            gh pr comment "$open" --repo "$GITHUB_REPOSITORY" \
+              --body "@$OWNER 下書きに新しい変更が追加されました。「Files changed」タブで確認してください。"
             exit 0
           fi
+          # 管理者を担当者にして名前を呼ぶ（リポジトリを Watch していなくてもメール通知が届く）
           gh pr create --repo "$GITHUB_REPOSITORY" --base main --head draft \
+            --assignee "$OWNER" \
             --title "サイト更新の承認依頼" \
-            --body "管理画面から、活動実績・メンバー・写真の更新がありました。
+            --body "@$OWNER 管理画面から、活動実績・メンバー・写真の更新がありました。
 
           **確認のしかた**
           1. 上の「Files changed」タブで、変更された内容を確認する（緑が追加、赤が削除）。

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tomohiro20.github.io/k1-taskforce/sitemap.xml

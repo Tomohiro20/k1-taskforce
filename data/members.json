@@ -25,9 +25,16 @@
         {
           "name": "村田 光陽",
           "kana": "むらた こうよう",
-          "affiliation": "BASE",
+          "affiliation": "先進学際科学府",
           "grade": "研究員",
           "lab": "鈴木研究室"
+        },
+        {
+          "name": "山川 颯太",
+          "kana": "やまかわ そうた",
+          "affiliation": "先進学際科学府",
+          "grade": "研究員",
+          "lab": "鈴木研"
         },
         {
           "name": "粕田 大雅",

@@ -239,6 +239,20 @@
     }
 
     // ---- メンバー ----
+    // URL があれば、文字を外部リンクにして包む
+    function linkOrText(tag, className, text, url) {
+        var node = el(tag, className);
+        if (isWebLink(url)) {
+            var a = el('a', 'member-card__link', text);
+            a.href = url;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            node.appendChild(a);
+        } else {
+            node.textContent = text;
+        }
+        return node;
+    }
     var memberList = document.querySelector('[data-members]');
     if (memberList) {
         loadJSON('data/members.json').then(function (data) {
@@ -252,11 +266,11 @@
                     group.members.forEach(function (m) {
                         if (!m || !m.name) return;
                         var card = el('div', 'member-card');
-                        card.appendChild(el('div', 'member-card__name', m.name));
+                        card.appendChild(linkOrText('div', 'member-card__name', m.name, m.url));
                         if (m.kana) card.appendChild(el('div', 'member-card__kana', m.kana));
                         var info = [m.affiliation, m.grade].filter(Boolean).join('\n');
                         if (info) card.appendChild(el('div', 'member-card__info', info));
-                        if (m.lab) card.appendChild(el('div', 'member-card__lab', m.lab));
+                        if (m.lab) card.appendChild(linkOrText('div', 'member-card__lab', m.lab, m.lab_url));
                         grid.appendChild(card);
                     });
                     section.append(head, grid);

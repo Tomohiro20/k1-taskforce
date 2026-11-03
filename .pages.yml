@@ -127,3 +127,13 @@ content:
               - name: lab
                 label: 研究室
                 type: string
+              - name: lab_url
+                label: 研究室のWebサイト（任意・https:// から）
+                description: 入れると、研究室名がそのサイトへのリンクになります。
+                type: string
+                pattern: "^(https?://.+)?$"
+              - name: url
+                label: 個人ページ（任意・https:// から）
+                description: 研究室の個人ページなど。入れると、氏名がそのページへのリンクになります。
+                type: string
+                pattern: "^(https?://.+)?$"

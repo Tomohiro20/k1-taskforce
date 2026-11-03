@@ -8,14 +8,17 @@
           "kana": "あいはら ともひろ",
           "affiliation": "先進理工学研究科 先進理工学専攻",
           "grade": "一貫制博士課程2年",
-          "lab": "朝日研究室"
+          "lab": "朝日研究室",
+          "lab_url": "https://asahi-lab.jp/",
+          "url": "https://asahi-lab.jp/member/student/2024/aihara.html"
         },
         {
           "name": "坂本 悠奈",
           "kana": "さかもと ゆな",
           "affiliation": "先進理工学部 生命医科学科",
           "grade": "修士1年",
-          "lab": "朝日研究室"
+          "lab": "朝日研究室",
+          "lab_url": "https://asahi-lab.jp/"
         }
       ]
     },
@@ -27,84 +30,96 @@
           "kana": "むらた こうよう",
           "affiliation": "先進学際科学府",
           "grade": "研究員",
-          "lab": "鈴木研究室"
+          "lab": "鈴木研究室",
+          "lab_url": "https://web.tuat.ac.jp/~tszk/"
         },
         {
           "name": "山川 颯太",
           "kana": "やまかわ そうた",
           "affiliation": "先進学際科学府",
           "grade": "研究員",
-          "lab": "鈴木研"
+          "lab": "鈴木研究室",
+          "lab_url": "https://web.tuat.ac.jp/~tszk/"
         },
         {
           "name": "粕田 大雅",
           "kana": "かすた たいが",
           "affiliation": "先進学際科学府先進学際科学専攻食料・環境科学コース",
           "grade": "修士2年",
-          "lab": "鈴木研究室"
+          "lab": "鈴木研究室",
+          "lab_url": "https://web.tuat.ac.jp/~tszk/"
         },
         {
           "name": "原田 彪吾",
           "kana": "はらだ ひょうご",
           "affiliation": "先進学際科学府先進学際科学専攻食料・環境科学コース",
           "grade": "修士2年",
-          "lab": "鈴木研究室"
+          "lab": "鈴木研究室",
+          "lab_url": "https://web.tuat.ac.jp/~tszk/"
         },
         {
           "name": "駒﨑 顕士",
           "kana": "こまざき けんと",
           "affiliation": "先進学際科学府先進学際科学専攻食料・環境科学コース",
           "grade": "修士1年",
-          "lab": "鈴木研究室"
+          "lab": "鈴木研究室",
+          "lab_url": "https://web.tuat.ac.jp/~tszk/"
         },
         {
           "name": "太田 菜緒",
           "kana": "おおた なお",
           "affiliation": "産業技術専攻",
           "grade": "修士1年",
-          "lab": "片岡研究室"
+          "lab": "片岡研究室",
+          "lab_url": "https://web.tuat.ac.jp/~ttanaka/index.html"
         },
         {
           "name": "長濵 良門",
           "kana": "ながはま らもん",
           "affiliation": "工学部",
           "grade": "修士1年",
-          "lab": "片岡研究室"
+          "lab": "片岡研究室",
+          "lab_url": "https://web.tuat.ac.jp/~ttanaka/index.html"
         },
         {
           "name": "木下 皓太",
           "kana": "きのした こうた",
           "affiliation": "工学部",
           "grade": "修士1年",
-          "lab": "片岡研究室"
+          "lab": "片岡研究室",
+          "lab_url": "https://web.tuat.ac.jp/~ttanaka/index.html"
         },
         {
           "name": "高橋 英暉",
           "kana": "たかはし ひであき",
           "affiliation": "先進学際科学府先進学際科学専攻食料・環境科学コース",
           "grade": "修士2年",
-          "lab": "鈴木研究室"
+          "lab": "鈴木研究室",
+          "lab_url": "https://web.tuat.ac.jp/~tszk/"
         },
         {
           "name": "窪田 有世",
           "kana": "くぼた ありせ",
           "affiliation": "農学部応用生物科学科",
           "grade": "学部4年",
-          "lab": "鈴木研究室"
+          "lab": "鈴木研究室",
+          "lab_url": "https://web.tuat.ac.jp/~tszk/"
         },
         {
           "name": "森田 響",
           "kana": "もりた ひびき",
           "affiliation": "農学部応用生物科学科",
           "grade": "学部4年",
-          "lab": "鈴木研究室"
+          "lab": "鈴木研究室",
+          "lab_url": "https://web.tuat.ac.jp/~tszk/"
         },
         {
           "name": "板倉 美有",
           "kana": "いたくら みう",
           "affiliation": "農学部応用生物科学科",
           "grade": "学部4年",
-          "lab": "鈴木研究室"
+          "lab": "鈴木研究室",
+          "lab_url": "https://web.tuat.ac.jp/~tszk/"
         }
       ]
     },

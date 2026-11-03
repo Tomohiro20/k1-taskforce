@@ -310,6 +310,41 @@ h1, h2, h3, p { margin: 0; }
 .news-list .tag { justify-self: start; }
 .news-list__title { font-size: 0.95rem; line-height: 1.7; }
 
+/* 開催予定（トップのカードと、活動実績ページの見出し・強調） */
+.status {
+    display: inline-block;
+    padding: 0.25em 0.9em;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+}
+.section--upcoming { padding-bottom: 0; }
+.upcoming-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.upcoming-card {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 32px 28px;
+    background: var(--surface);
+    border-top: 3px solid var(--accent);
+    box-shadow: 0 1px 0 var(--line);
+}
+.upcoming-card__top { display: flex; align-items: center; gap: 10px; }
+.upcoming-card__date { margin-top: 1.2rem; font-family: var(--font-en); font-size: 1.5rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1.3; }
+.upcoming-card__title { margin-top: 0.8rem; font-size: 1.05rem; line-height: 1.7; letter-spacing: 0.03em; }
+.upcoming-card__title a { text-decoration: none; transition: color 0.3s; }
+.upcoming-card__title a:hover { color: var(--accent); }
+.upcoming-card .activity-item__links { margin-top: auto; padding-top: 1.4rem; }
+
+.activity-heading { padding: 0 0 1.2rem; }
+.activity-heading .label { margin-bottom: 0.4rem; }
+.activity-heading h2 { font-size: 1.4rem; letter-spacing: 0.06em; }
+.activity-item + .activity-heading { margin-top: 72px; }
+.activity-item--upcoming { background: var(--surface); border-top: 3px solid var(--accent); padding-left: 32px; padding-right: 32px; }
+.activity-item--upcoming + .activity-item--upcoming { margin-top: 16px; }
+
 /* 活動実績 */
 .activity-list { min-height: 60vh; border-bottom: 1px solid var(--line); }
 .activity-item {
@@ -465,6 +500,9 @@ h1, h2, h3, p { margin: 0; }
     .news-list a::after { grid-column: 3; grid-row: 1 / 3; align-self: center; }
 
     .activity-item { grid-template-columns: 1fr; gap: 20px; padding: 32px 0; }
+    .activity-item--upcoming { padding: 24px 20px; }
+    .upcoming-grid { grid-template-columns: 1fr; }
+    .upcoming-card { padding: 24px 20px; }
     .activity-item__thumb--empty { display: none; }
     .activity-item__title { font-size: 1.08rem; }
 

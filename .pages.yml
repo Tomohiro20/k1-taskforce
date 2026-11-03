@@ -35,6 +35,13 @@ content:
             required: true
             options:
               format: yyyy-MM-dd
+          - name: end_date
+            label: 終了日（複数日の開催のときだけ）
+            description: 開催日（または終了日）が今日以降の活動は、サイトで「開催予定」として目立つ位置に表示され、終わると自動で活動実績に移ります。
+            type: date
+            default: ""
+            options:
+              format: yyyy-MM-dd
           - name: date_label
             label: 日付の表示（複数日のときだけ）
             description: "例: 2026.05.30・31 ／ 2025.11.14 ~ 11.16。1日だけなら空欄のままで大丈夫です。"

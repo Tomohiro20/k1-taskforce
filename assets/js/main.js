@@ -52,6 +52,34 @@
     function imagePath(src) { return String(src).replace(/^\//, ''); }
     function isWebLink(url) { return /^https?:\/\//.test(url || ''); }
 
+    // ---- 日付 ----
+    var WEEKDAYS = ['日', '月', '火', '水', '木', '金', '土'];
+    function ymdOf(value) { return String(value || '').slice(0, 10); }
+    function todayYmd() {
+        var d = new Date();
+        return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+    }
+    function parseYmd(ymd) {
+        var p = ymd.split('-');
+        return new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+    }
+    // 終了日（なければ開催日）が今日以降なら「開催予定」
+    function isUpcoming(item) { return (item.endYmd || item.ymd) >= todayYmd(); }
+    // 「あと4日」「本日開催」「開催中」
+    function statusText(item) {
+        var today = todayYmd();
+        if (item.ymd > today) {
+            var days = Math.round((parseYmd(item.ymd) - parseYmd(today)) / 86400000);
+            return days === 1 ? '明日開催' : 'あと' + days + '日';
+        }
+        return item.ymd === today ? '本日開催' : '開催中';
+    }
+    // 開催予定カード用の「11.07 (土) – 11.08 (日)」
+    function dayText(ymd) {
+        var d = parseYmd(ymd);
+        return (d.getMonth() + 1) + '.' + ('0' + d.getDate()).slice(-2) + ' (' + WEEKDAYS[d.getDay()] + ')';
+    }
+
     // ---- 活動実績 ----
     function sortedActivities(data) {
         var used = {};
@@ -59,19 +87,43 @@
             .filter(function (item) { return item && item.title && item.date; })
             .sort(function (a, b) { return String(b.date).localeCompare(String(a.date)); })
             .map(function (item) {
-                var ymd = String(item.date).slice(0, 10);
+                var ymd = ymdOf(item.date);
                 var id = 'a' + ymd.replace(/-/g, '');
                 used[id] = (used[id] || 0) + 1;
                 if (used[id] > 1) id += '-' + used[id];
-                return Object.assign({}, item, { id: id, dateText: item.date_label || ymd.replace(/-/g, '.') });
+                var endYmd = ymdOf(item.end_date);
+                return Object.assign({}, item, {
+                    id: id,
+                    ymd: ymd,
+                    endYmd: endYmd > ymd ? endYmd : '',
+                    dateText: item.date_label || ymd.replace(/-/g, '.')
+                });
+            });
+    }
+    function splitByDate(items) {
+        return {
+            upcoming: items.filter(isUpcoming).reverse(), // 近い順
+            past: items.filter(function (item) { return !isUpcoming(item); })
+        };
+    }
+    function statusNode(item) { return el('span', 'status', statusText(item)); }
+    function linkNodes(item) {
+        return (item.links || [])
+            .filter(function (link) { return link && isWebLink(link.url); })
+            .map(function (link) {
+                var a = el('a', 'text-link', link.label || '詳しく見る');
+                a.href = link.url;
+                a.target = '_blank';
+                a.rel = 'noopener';
+                return a;
             });
     }
     function tagNode(tag) {
         var name = tag || 'EVENT';
         return el('span', name === 'AWARD' ? 'tag tag--award' : 'tag', name);
     }
-    function activityNode(item) {
-        var article = el('article', 'activity-item');
+    function activityNode(item, upcoming) {
+        var article = el('article', upcoming ? 'activity-item activity-item--upcoming' : 'activity-item');
         article.id = item.id;
 
         var thumb = el('div', 'activity-item__thumb');
@@ -90,32 +142,40 @@
 
         var body = el('div', 'activity-item__body');
         var meta = el('div', 'activity-item__meta');
+        if (upcoming) meta.appendChild(statusNode(item));
         meta.append(el('span', 'date', item.dateText), tagNode(item.tag));
-        body.append(meta, el('h2', 'activity-item__title', item.title));
+        body.append(meta, el('h3', 'activity-item__title', item.title));
         if (item.place) body.appendChild(el('p', 'activity-item__place', item.place));
         if (item.text) body.appendChild(el('p', 'activity-item__text', item.text));
 
-        var links = (item.links || []).filter(function (link) { return link && isWebLink(link.url); });
+        var links = linkNodes(item);
         if (links.length) {
             var box = el('div', 'activity-item__links');
-            links.forEach(function (link) {
-                var a = el('a', 'text-link', link.label || '詳しく見る');
-                a.href = link.url;
-                a.target = '_blank';
-                a.rel = 'noopener';
-                box.appendChild(a);
-            });
+            box.append.apply(box, links);
             body.appendChild(box);
         }
         article.append(thumb, body);
         return article;
     }
 
-    // 活動実績ページ：全件を新しい順に表示
+    function headingNode(en, jp) {
+        var head = el('div', 'activity-heading');
+        head.append(el('span', 'label', en), el('h2', null, jp));
+        return head;
+    }
+
+    // 活動実績ページ：開催予定（近い順）→ これまでの活動（新しい順）
     var activityList = document.querySelector('[data-activities]');
     if (activityList) {
         loadJSON('data/activities.json').then(function (data) {
-            var nodes = sortedActivities(data).map(activityNode);
+            var groups = splitByDate(sortedActivities(data));
+            var nodes = [];
+            if (groups.upcoming.length) {
+                nodes.push(headingNode('Upcoming', '開催予定'));
+                groups.upcoming.forEach(function (item) { nodes.push(activityNode(item, true)); });
+                nodes.push(headingNode('Archive', 'これまでの活動'));
+            }
+            groups.past.forEach(function (item) { nodes.push(activityNode(item, false)); });
             activityList.replaceChildren.apply(activityList, nodes);
             nodes.forEach(reveal);
             // activity.html#a20260530 のようなリンクで来たときは、その活動まで移動する
@@ -126,12 +186,44 @@
         });
     }
 
-    // トップページ：最新の数件を一覧で表示
+    // トップページ：開催予定のイベント（あるときだけ表示）
+    var upcomingBox = document.querySelector('[data-upcoming]');
+    if (upcomingBox) {
+        loadJSON('data/activities.json').then(function (data) {
+            var items = splitByDate(sortedActivities(data)).upcoming;
+            if (!items.length) return;
+            var grid = el('div', 'upcoming-grid');
+            items.forEach(function (item) {
+                var card = el('article', 'upcoming-card');
+                var top = el('div', 'upcoming-card__top');
+                top.append(statusNode(item), tagNode(item.tag));
+                var date = el('p', 'upcoming-card__date', dayText(item.ymd) + (item.endYmd ? ' – ' + dayText(item.endYmd) : ''));
+                var title = el('h3', 'upcoming-card__title');
+                var titleLink = el('a', null, item.title);
+                titleLink.href = 'activity.html#' + item.id;
+                title.appendChild(titleLink);
+                card.append(top, date, title);
+                if (item.place) card.appendChild(el('p', 'activity-item__place', item.place));
+                var links = linkNodes(item);
+                if (links.length) {
+                    var box = el('div', 'activity-item__links');
+                    box.append.apply(box, links);
+                    card.appendChild(box);
+                }
+                grid.appendChild(card);
+            });
+            upcomingBox.querySelector('[data-upcoming-list]').replaceChildren(grid);
+            upcomingBox.hidden = false;
+            upcomingBox.querySelectorAll('.reveal').forEach(reveal);
+        }).catch(function () { /* 読み込めないときは何も表示しない */ });
+    }
+
+    // トップページ：これまでの活動から最新の数件を一覧で表示
     var latest = document.querySelector('[data-latest-activity]');
     if (latest) {
         var count = Number(latest.getAttribute('data-latest-activity')) || 4;
         loadJSON('data/activities.json').then(function (data) {
-            var items = sortedActivities(data).slice(0, count);
+            var items = splitByDate(sortedActivities(data)).past.slice(0, count);
             if (!items.length) return;
             var list = el('ul', 'news-list');
             items.forEach(function (item) {
